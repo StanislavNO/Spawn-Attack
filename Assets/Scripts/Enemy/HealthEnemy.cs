@@ -3,11 +3,13 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
+    [RequireComponent(typeof(Collider2D))]
     public class HealthEnemy : Health
     {
-        public override void OnTriggerEnter2D(Collider2D collision)
+        public void OnTriggerEnter2D(Collider2D collision)
         {
-            base.OnTriggerEnter2D(collision);
+            if (collision.TryGetComponent(out IAttacker attacker))
+                SetDamage(attacker.Attack());
         }
     }
 }

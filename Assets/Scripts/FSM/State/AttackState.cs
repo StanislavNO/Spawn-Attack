@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -8,13 +7,19 @@ namespace Assets.Scripts
     {
         [SerializeField] private int _damage;
         [SerializeField] private float _delay;
+        [SerializeField] private float _lastAttackTime;
 
         private Animator _animator;
-        private float _lastAttackTime;
 
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+        }
+
+        private void OnEnable()
+        {
+            Attack(Target);
+            _animator.SetTrigger("Attack");
         }
 
         private void Update()
@@ -30,11 +35,8 @@ namespace Assets.Scripts
 
         public void Attack(Player player)
         {
-            _animator.Play("Attack");
-
             if(player.TryGetComponent(out Health health))
                 health.SetDamage(_damage);
-                
         }
     }
 }

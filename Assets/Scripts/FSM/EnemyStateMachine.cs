@@ -14,7 +14,7 @@ namespace Assets.Scripts
         private void Awake()
         {
             _target = GetComponent<Enemy>().Target;
-            Reboot(_startState);
+            Initialize(_startState);
         }
 
         private void Update()
@@ -25,24 +25,24 @@ namespace Assets.Scripts
             var nextState = _currentState.GetNextState();
 
             if (nextState != null)
-                Transit(nextState);
+                ChangeState(nextState);
         }
 
-        private void Reboot(State startState)
+        private void Initialize(State startState)
         {
             _currentState = startState;
             _currentState?.Enter(_target);
         }
 
-        private void Transit(State nextState)
+        private void ChangeState(State nextState)
         {
             if (nextState != null)
-                _currentState.Exit();
+                _currentState?.Exit();
 
             _currentState = nextState;
 
-            if (_currentState != null)
-                _currentState.Enter(_target);
+            //if (_currentState != null)
+            _currentState?.Enter(_target);
         }
     }
 }

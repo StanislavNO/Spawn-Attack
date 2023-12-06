@@ -6,9 +6,15 @@ namespace Assets.Scripts
     public class Enemy : MonoBehaviour
     {
         [SerializeField] private int _reward;
-        [SerializeField] private Player _target;
+        
+        private Player _target;
 
         public Player Target => _target;
+
+        public void Init(Player player)
+        {
+            _target = player;
+        }
 
         public void TryGetReward()
         {
