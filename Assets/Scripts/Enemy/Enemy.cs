@@ -21,5 +21,11 @@ namespace Assets.Scripts
             if(_target.TryGetComponent(out Wallet wallet))
                 wallet.SetMoney((uint)_reward);
         }
+
+        public void Dying()
+        {
+            TryGetReward();
+            gameObject.SetActive(false);
+        }
     }
 }

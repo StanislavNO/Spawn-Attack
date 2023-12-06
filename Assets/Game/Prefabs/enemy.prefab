@@ -130,7 +130,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LivesAreOver:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3016058046743923008}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Dead
+          m_BoolArgument: 0
+        m_CallState: 2
   HealthChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -176,7 +188,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 9147257542784070381}
   - {fileID: 8266812562585019865}
-  _speed: 2
+  _speed: 0.8
 --- !u!114 &9147257542784070381
 MonoBehaviour:
   m_ObjectHideFlags: 0

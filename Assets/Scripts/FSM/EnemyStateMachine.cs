@@ -11,7 +11,7 @@ namespace Assets.Scripts
         private Player _target;
         public State _currentState { get; private set; }
 
-        private void Awake()
+        private void Start()
         {
             _target = GetComponent<Enemy>().Target;
             Initialize(_startState);
