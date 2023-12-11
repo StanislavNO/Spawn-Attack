@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3632014816592223686}
   - component: {fileID: 1498507974197581909}
   - component: {fileID: 3016058046743923008}
-  - component: {fileID: 1767914990458025893}
+  - component: {fileID: 8999409046482849902}
   - component: {fileID: 6303735659648022217}
   - component: {fileID: 5815756927485658672}
   - component: {fileID: 5749815105969306478}
@@ -116,7 +116,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1767914990458025893
+--- !u!114 &8999409046482849902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,28 +125,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7565952622138344664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 041973feffc713846a5579e79764dfd6, type: 3}
+  m_Script: {fileID: 11500000, guid: 52ff3495d2736bf40bcc38a89265ef4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LivesAreOver:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3016058046743923008}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Dead
-          m_BoolArgument: 0
-        m_CallState: 2
-  HealthChanged:
+  _livesAreOver:
     m_PersistentCalls:
       m_Calls: []
-  Point: 5
+  _healthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _point: 1
 --- !u!114 &6303735659648022217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _reward: 1
+  _health: {fileID: 8999409046482849902}
 --- !u!114 &5815756927485658672
 MonoBehaviour:
   m_ObjectHideFlags: 0

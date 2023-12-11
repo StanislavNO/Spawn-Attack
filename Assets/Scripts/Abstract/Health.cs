@@ -3,31 +3,33 @@ using UnityEngine.Events;
 
 namespace Assets.Scripts
 {
-    public abstract class Health : MonoBehaviour
+    public class Health : MonoBehaviour
     {
-        [SerializeField] protected UnityEvent LivesAreOver;
-        [SerializeField] protected UnityEvent HealthChanged;
+        [SerializeField] private UnityEvent _livesAreOver;
+        [SerializeField] private UnityEvent _healthChanged;
 
-        [SerializeField] protected int Point;
+        [SerializeField] private int _point;
+
+        private uint _minPoint = uint.MinValue;
 
         public int MaxPoint { get; private set; }
         public int LivePoint { get; private set; }
 
-        protected void Awake()
+        private void Awake()
         {
-            MaxPoint = Point;
-            LivePoint = Point;
+            MaxPoint = _point;
+            LivePoint = _point;
         }
 
         public virtual void SetDamage(int damage)
         {
-            if (damage > uint.MinValue)
+            if (damage > _minPoint)
                 LivePoint -= damage;
 
-            if (LivePoint <= uint.MinValue)
-                LivesAreOver.Invoke();
+            if (LivePoint <= _minPoint)
+                _livesAreOver.Invoke();
 
-            HealthChanged.Invoke();
+            _healthChanged.Invoke();
         }
     }
 }

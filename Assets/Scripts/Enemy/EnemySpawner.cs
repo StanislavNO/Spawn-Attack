@@ -8,15 +8,19 @@ namespace Assets.Scripts
 {
     public class EnemySpawner : MonoBehaviour
     {
+        [SerializeField] private UnityEvent _enemySpawned;
         [SerializeField] private UnityEvent _allEnemySpawned;
         [SerializeField] private List<Wave> _waves;
         [SerializeField] private Player _player;
 
         private Wave _currentWave;
         private int _currentWaveIndex;
-        int _lastWaveIndex;
+        private int _lastWaveIndex;
         private float _timeAfterLastSpawn;
         private int _enemyCounter;
+
+        public int MaxEnemy { get; private set; }
+        public int EnemyCounter => _enemyCounter;
 
         private void Awake()
         {
@@ -33,9 +37,9 @@ namespace Assets.Scripts
 
             if (_timeAfterLastSpawn >= _currentWave.Delay)
             {
-                CreateEnemy();
                 _enemyCounter++;
                 _timeAfterLastSpawn = 0;
+                CreateEnemy();
             }
 
             if (_enemyCounter >= _waves[_currentWaveIndex].Count)
@@ -62,6 +66,7 @@ namespace Assets.Scripts
         private void SetWave(int index)
         {
             _currentWave = _waves[index];
+            MaxEnemy = _currentWave.Count;
         }
 
         private void CreateEnemy()
@@ -73,6 +78,8 @@ namespace Assets.Scripts
                 transform);
 
             enemy.Init(_player);
+
+            _enemySpawned?.Invoke();
         }
     }
 
