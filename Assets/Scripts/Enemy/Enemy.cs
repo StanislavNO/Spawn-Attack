@@ -26,6 +26,7 @@ namespace Assets.Scripts
         public void Dying()
         {
             TryGetReward();
+            Destroy(gameObject);
             gameObject.SetActive(false);
         }
 
