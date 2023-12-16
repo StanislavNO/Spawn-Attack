@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8186314912967327725}
   - component: {fileID: 1243749584049710404}
   - component: {fileID: 2230929876029392834}
+  - component: {fileID: 4790709937087184709}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -76,9 +77,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 1612729884, guid: 3e4a3764727f0584197537f2c5db1515, type: 3}
   m_Color: {r: 0.18155923, g: 0.6572578, b: 0.9433962, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -126,9 +127,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd8c94c79271c248956eb28585e9b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icon: {fileID: 21300000, guid: f73f68fe6815f5548a6c2a61b9e49add, type: 3}
-  _label: qqqqqq
-  _price: 50
+  _icon: {fileID: 21300000, guid: a56ebd71225ea8644955929010187836, type: 3}
+  _label: "\u041C\u0430\u0433\u0438\u044F \u041B\u0435\u0434\u044F\u043D\u043E\u0433\u043E
+    \u0428\u0430\u0440\u0430 \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u0435\u0442
+    \u0441\u043E\u0437\u0434\u0430\u0442\u044C \u043D\u0435\u0431\u043E\u043B\u044C\u0448\u043E\u0439
+    \u043B\u0435\u0434\u044F\u043D\u043E\u0439 \u0448\u0430\u0440, \u043A\u043E\u0442\u043E\u0440\u044B\u0439
+    \u043C\u043E\u0436\u043D\u043E \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C
+    \u0434\u043B\u044F \u0430\u0442\u0430\u043A\u0438 \u0438\u043B\u0438 \u0437\u0430\u0449\u0438\u0442\u044B.
+    \u0421 \u0435\u0433\u043E \u043F\u043E\u043C\u043E\u0449\u044C\u044E \u043C\u043E\u0436\u043D\u043E
+    \u0437\u0430\u043C\u043E\u0440\u043E\u0437\u0438\u0442\u044C \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u0430,
+    \u0437\u0430\u043C\u0435\u0434\u043B\u0438\u0442\u044C \u0435\u0433\u043E \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u0435
+    \u0438\u043B\u0438 \u0441\u043E\u0437\u0434\u0430\u0442\u044C \u043F\u0440\u0435\u0433\u0440\u0430\u0434\u0443
+    \u043C\u0435\u0436\u0434\u0443 \u0441\u043E\u0431\u043E\u0439 \u0438 \u0432\u0440\u0430\u0433\u043E\u043C.
+    \u041B\u0435\u0434\u044F\u043D\u043E\u0439 \u0448\u0430\u0440 \u0442\u0430\u043A\u0436\u0435
+    \u043C\u043E\u0436\u0435\u0442 \u0431\u044B\u0442\u044C \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D
+    \u0434\u043B\u044F \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u044F
+    \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F \u0438 \u043C\u0430\u043D\u044B,
+    \u0442\u0430\u043A \u043A\u0430\u043A \u0445\u043E\u043B\u043E\u0434 \u043F\u043E\u043C\u043E\u0433\u0430\u0435\u0442
+    \u0443\u043A\u0440\u0435\u043F\u0438\u0442\u044C \u0442\u0435\u043B\u043E \u0438
+    \u0434\u0443\u0445."
+  _price: 0
   _isPurchased: 0
   Damage: 1
 --- !u!58 &2230929876029392834
@@ -166,3 +184,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!95 &4790709937087184709
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4767650470300489143}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e10ada2c5f032564988788b504186d4a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

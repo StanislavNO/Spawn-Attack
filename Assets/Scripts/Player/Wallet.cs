@@ -7,8 +7,14 @@ namespace Assets.Scripts
     public class Wallet : MonoBehaviour
     {
         [SerializeField] private UnityEvent _moneyChange;
+        [SerializeField] private uint _startMoney;
 
         public uint Money { get; private set; }
+
+        private void Awake()
+        {
+            Money = _startMoney;
+        }
 
         public void SetMoney(uint money)
         {
@@ -16,7 +22,7 @@ namespace Assets.Scripts
             _moneyChange.Invoke();
         }
 
-        public bool GetMoney(int price)
+        public bool TryBuy(int price)
         {
             if (Money >= price)
             {

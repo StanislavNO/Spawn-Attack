@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using TMPro;
+﻿using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 namespace Assets.Scripts
 {
@@ -11,12 +10,21 @@ namespace Assets.Scripts
         [SerializeField] private Image _icon;
         [SerializeField] private Button _buyButton;
 
+        private Shop _shop;
         private TMP_Text _productDescription;
         private Ball _ball;
 
-        public void Init(TMP_Text description)
+        public int PriceBall => _ball.Price;
+
+        public void Init(TMP_Text description, Shop shop)
         {
             _productDescription = description;
+            _shop = shop;
+        }
+
+        private void Awake()
+        {
+            _buyButton.onClick.AddListener(informShop);
         }
 
         public void ShowDescription()
@@ -31,6 +39,11 @@ namespace Assets.Scripts
 
             _price.text = _ball.Price.ToString();
             _icon.sprite = _ball.Icon;
+        }
+
+        private void informShop()
+        {
+            _shop?.TryToSell(_ball, _buyButton);
         }
     }
 }

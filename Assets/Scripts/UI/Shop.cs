@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 namespace Assets.Scripts
 {
@@ -9,21 +9,36 @@ namespace Assets.Scripts
     {
         [SerializeField] private List<Ball> _balls;
         [SerializeField] private Player _player;
-        [SerializeField] private BallView _template;
+        [SerializeField] private Stick _stick;
+        [SerializeField] private BallView _ballView;
         [SerializeField] private GameObject _itemContainer;
         [SerializeField] private TMP_Text _productDescription;
+        [SerializeField] private AudioSource _audioSource;
 
         private void Awake()
         {
             foreach (var ball in _balls)
-                AddStick(ball);
+                CreateBall(ball);
+
+            gameObject.SetActive(false);
         }
 
-        private void AddStick(Ball ball)
+        public void TryToSell(Ball ball, Button buyButton)
         {
-            var view = Instantiate(_template, _itemContainer.transform);
-            view.Init(_productDescription);
+            if (_player.GetComponent<Wallet>().TryBuy(ball.Price))
+            {
+                buyButton.enabled = false;
+                _audioSource.Play();
 
+                _stick.AddBall(ball);
+            }
+        }
+
+        private void CreateBall(Ball ball)
+        {
+            var view = Instantiate(_ballView, _itemContainer.transform);
+
+            view.Init(_productDescription, this);
             view.Render(ball);
         }
     }
