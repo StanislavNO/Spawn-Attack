@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine;
 
 namespace Assets.Scripts
 {

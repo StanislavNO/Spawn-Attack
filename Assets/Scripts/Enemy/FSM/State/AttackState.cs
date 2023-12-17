@@ -5,6 +5,8 @@ namespace Assets.Scripts
     [RequireComponent(typeof(Animator))]
     public class AttackState : State
     {
+        private const string AttackTrigger = "Attack";
+
         [SerializeField] private int _damage;
         [SerializeField] private float _delay;
         [SerializeField] private float _lastAttackTime;
@@ -19,7 +21,7 @@ namespace Assets.Scripts
         private void OnEnable()
         {
             Attack(Target);
-            _animator.SetTrigger("Attack");
+            _animator.SetTrigger(AttackTrigger);
         }
 
         private void Update()
@@ -35,7 +37,7 @@ namespace Assets.Scripts
 
         public void Attack(Player player)
         {
-            if(player.TryGetComponent(out Health health))
+            if (player.TryGetComponent(out Health health))
                 health.SetDamage(_damage);
         }
     }

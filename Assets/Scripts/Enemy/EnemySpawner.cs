@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class EnemySpawner : MonoBehaviour
+    public class EnemySpawner : ObjectPool
     {
         [SerializeField] private UnityEvent _enemySpawned;
         [SerializeField] private UnityEvent _allEnemySpawned;
@@ -39,7 +37,13 @@ namespace Assets.Scripts
             {
                 _enemyCounter++;
                 _timeAfterLastSpawn = 0;
-                CreateEnemy();
+
+                if (TryGetObject(out GameObject enemy))
+                {
+                    SetEnemy(enemy, transform.position);
+                }
+                else
+                    CreateEnemy();
             }
 
             if (_enemyCounter >= _waves[_currentWaveIndex].Count)
@@ -69,6 +73,14 @@ namespace Assets.Scripts
             MaxEnemy = _currentWave.Count;
         }
 
+        private void SetEnemy(GameObject enemy, Vector3 spawnPoint)
+        {
+            enemy.SetActive(true);
+            enemy.transform.position = spawnPoint;
+
+            _enemySpawned?.Invoke();
+        }
+
         private void CreateEnemy()
         {
             Enemy enemy = Instantiate(
@@ -78,6 +90,9 @@ namespace Assets.Scripts
                 transform);
 
             enemy.Init(_player);
+
+            Initialize(enemy.gameObject);
+            SetEnemy(enemy.gameObject, transform.position);
 
             _enemySpawned?.Invoke();
         }

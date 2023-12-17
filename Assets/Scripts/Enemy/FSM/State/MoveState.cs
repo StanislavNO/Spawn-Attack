@@ -5,6 +5,8 @@ namespace Assets.Scripts
     [RequireComponent(typeof(Animator))]
     public class MoveState : State
     {
+        private const string WalkTrigger = "Walk";
+
         [SerializeField] private float _speed;
 
         private Animator _animator;
@@ -16,18 +18,18 @@ namespace Assets.Scripts
 
         private void OnEnable()
         {
-            _animator.SetBool("Walk", true);
+            _animator.SetBool(WalkTrigger, true);
         }
 
         private void OnDisable()
         {
-            _animator.SetBool("Walk", false);
+            _animator.SetBool(WalkTrigger, false);
         }
 
         private void Update()
         {
             transform.position = Vector2.MoveTowards(
-                transform.position, 
+                transform.position,
                 Target.transform.position,
                 _speed * Time.deltaTime);
         }

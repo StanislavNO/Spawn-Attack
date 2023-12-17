@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.UI
+namespace Assets.Scripts
 {
     public class ProgressBar : Bar
     {

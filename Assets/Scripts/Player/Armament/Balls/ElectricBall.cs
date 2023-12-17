@@ -9,9 +9,5 @@ namespace Assets.Scripts
         {
             return Damage;
         }
-
-        protected override void Move()
-        {
-        }
     }
 }

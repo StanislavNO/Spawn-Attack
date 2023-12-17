@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using UnityEngine;
-
-namespace Assets.Scripts
+﻿namespace Assets.Scripts
 {
     public class IceBall : Ball
     {
         public override int Attack()
         {
-            return Damage;        
+            gameObject.SetActive(false);
+
+            return Damage;
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -17,24 +16,28 @@ namespace Assets.Scripts
 
         public override int Attack()
         {
+            int result = 0;
+
             _countAttack++;
 
             if (_countAttack > _maxAttackNumber)
             {
-                transform.localScale /= _minScale;
+                result = Damage - (int)_counter;
             }
+            else
+                result = Damage;
 
             if (_countAttack == _maxAttackNumber)
             {
                 Die();
             }
 
-            return Damage + (int)_counter;
+            return result;
         }
 
-        public void Die()
+        private void Die()
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

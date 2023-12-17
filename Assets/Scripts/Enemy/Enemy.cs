@@ -7,7 +7,7 @@ namespace Assets.Scripts
     {
         [SerializeField] private int _reward;
         [SerializeField] private Health _health;
-        
+
         private Player _target;
 
         public Player Target => _target;
@@ -17,7 +17,7 @@ namespace Assets.Scripts
             _target = player;
         }
 
-        public void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.TryGetComponent(out IAttacker attacker))
                 _health.SetDamage(attacker.Attack());
@@ -26,13 +26,13 @@ namespace Assets.Scripts
         public void Dying()
         {
             TryGetReward();
-            Destroy(gameObject);
             gameObject.SetActive(false);
+            _health.Restart();
         }
 
         private void TryGetReward()
         {
-            if(_target.TryGetComponent(out Wallet wallet))
+            if (_target.TryGetComponent(out Wallet wallet))
                 wallet.SetMoney((uint)_reward);
         }
     }

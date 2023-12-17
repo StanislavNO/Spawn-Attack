@@ -1,6 +1,5 @@
-﻿using System.Collections;
+﻿using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
@@ -10,7 +9,7 @@ namespace Assets.Scripts
 
         public void OnValueChanged(int value, int maxValue)
         {
-            Slider.value = (float)value/maxValue;
+            Slider.value = (float)value / maxValue;
         }
     }
 }

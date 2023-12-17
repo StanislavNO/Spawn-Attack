@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts
 {
     [RequireComponent(typeof(Animator))]
     public class VictoryState : State
     {
+        private const string WinTrigger = "Victory";
+
         private Animator _animator;
 
         private void Awake()
@@ -15,7 +16,7 @@ namespace Assets.Scripts
 
         private void OnEnable()
         {
-            _animator.Play("Win");
+            _animator.SetTrigger(WinTrigger);
         }
 
         private void OnDisable()

@@ -1,19 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine.Events;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
     [RequireComponent(typeof(Animator))]
     public class Stick : MonoBehaviour
     {
+        private const string AttackTrigger = "Attack1";
+
         [SerializeField] private UnityEvent _currentBallChanged;
         [SerializeField] private Transform _shootPoint;
 
         private List<Ball> _balls = new();
-        private int _currentBallIndex;
+        private int _currentBallIndex = -1;
         private Animator _animator;
         private bool _canAttack;
 
@@ -29,6 +30,7 @@ namespace Assets.Scripts
         {
             _balls.Add(ball);
             CurrentBall = ball;
+            _currentBallIndex++;
             _currentBallChanged?.Invoke();
         }
 
@@ -83,7 +85,7 @@ namespace Assets.Scripts
             if (_canAttack)
             {
                 _canAttack = false;
-                _animator.SetTrigger("Attack1");
+                _animator.SetTrigger(AttackTrigger);
                 yield return delay;
                 Shot();
                 _canAttack = true;

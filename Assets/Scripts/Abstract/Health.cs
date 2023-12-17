@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine.Events;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -30,6 +30,11 @@ namespace Assets.Scripts
                 _livesAreOver.Invoke();
 
             _healthChanged.Invoke();
+        }
+
+        public void Restart()
+        {
+            LivePoint = MaxPoint;
         }
     }
 }

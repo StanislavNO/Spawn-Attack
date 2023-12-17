@@ -10,7 +10,7 @@ namespace Assets.Scripts
 
         public void ChangeImage()
         {
-            if ( _stick.CurrentBall != null )
+            if (_stick.CurrentBall != null)
                 _image.sprite = _stick.CurrentBall.Icon;
         }
     }

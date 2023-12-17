@@ -9,7 +9,6 @@ public class MenuChanger : MonoBehaviour
     public void ChangeState(GameObject panel)
     {
         _isOpenPanel = panel.activeSelf;
-        Debug.Log(_isOpenPanel);
 
         if (_isOpenPanel)
             Close(panel);
@@ -25,7 +24,6 @@ public class MenuChanger : MonoBehaviour
     private void Open(GameObject panel)
     {
         panel.SetActive(true);
-
         Time.timeScale = _pause;
 
     }

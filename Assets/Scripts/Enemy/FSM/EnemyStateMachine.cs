@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -40,8 +39,6 @@ namespace Assets.Scripts
                 _currentState?.Exit();
 
             _currentState = nextState;
-
-            //if (_currentState != null)
             _currentState?.Enter(_target);
         }
     }

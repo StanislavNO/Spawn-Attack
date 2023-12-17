@@ -10,7 +10,7 @@ namespace Assets.Scripts
         protected Player Target { get; set; }
 
         public void Enter(Player target)
-        { 
+        {
             if (enabled == false)
             {
                 Target = target;
@@ -24,9 +24,9 @@ namespace Assets.Scripts
             }
         }
 
-        public void Exit() 
+        public void Exit()
         {
-            if(enabled == true)
+            if (enabled == true)
             {
                 foreach (var transition in _transitions)
                     transition.enabled = false;
@@ -39,7 +39,7 @@ namespace Assets.Scripts
         {
             foreach (var transition in _transitions)
             {
-                if(transition.NeedTransit)
+                if (transition.NeedTransit)
                 {
                     return transition.TargetState;
                 }

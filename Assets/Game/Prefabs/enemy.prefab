@@ -37,7 +37,7 @@ Transform:
   m_GameObject: {fileID: 7565952622138344664}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.99, y: -3.89, z: -0.7}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -146,7 +146,7 @@ MonoBehaviour:
   _healthChanged:
     m_PersistentCalls:
       m_Calls: []
-  _point: 1
+  _point: 3
 --- !u!114 &6303735659648022217
 MonoBehaviour:
   m_ObjectHideFlags: 0

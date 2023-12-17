@@ -24,7 +24,7 @@ namespace Assets.Scripts
 
         private void Awake()
         {
-            _buyButton.onClick.AddListener(informShop);
+            _buyButton.onClick.AddListener(InformShop);
         }
 
         public void ShowDescription()
@@ -41,7 +41,7 @@ namespace Assets.Scripts
             _icon.sprite = _ball.Icon;
         }
 
-        private void informShop()
+        private void InformShop()
         {
             _shop?.TryToSell(_ball, _buyButton);
         }
