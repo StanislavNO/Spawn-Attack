@@ -7,7 +7,6 @@ namespace Assets.Scripts
         private float _counter;
         private int _countAttack;
         private int _maxAttackNumber = 2;
-        private float _minScale = 2;
 
         private void Update()
         {
