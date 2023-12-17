@@ -1,9 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
-using System;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 
 namespace Assets.Scripts
 {
